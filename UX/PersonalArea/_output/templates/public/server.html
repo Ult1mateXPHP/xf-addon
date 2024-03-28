@@ -1,0 +1,118 @@
+<xf:if is="$style == 'default'">
+  <xf:else/>
+  <div class="background_{{ $style }}">
+</xf:if>
+
+<xf:if is="$nav">
+  {{ include('nav_bar') }}
+</xf:if>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+
+<script type='text/javascript'>
+  $(document).ready(function() {
+    $("BUTTON#trigger1").toggle(function() { // Кнопка "Скин"
+              $("DIV#box1").fadeIn();
+              return false;
+            },
+            function() {
+              $("DIV#box1").fadeOut();
+              return false;
+            });
+  });
+</script>
+
+<xf:if is="$role != 'Newb'">
+  <script type='text/javascript'>
+    $(document).ready(function() {
+      $("BUTTON#trigger2").toggle(function() {  // Кнопка "Плащ"
+                $("DIV#box2").fadeIn();
+                return false;
+              },
+              function() {
+                $("DIV#box2").fadeOut();
+                return false;
+              });
+    });
+  </script>
+</xf:if>
+
+<h3 class="message"></h3>
+
+<div class="bfield_1_invisible">
+  <span class="bheading">Внешность</span>
+  <div class="bheading_line"></div>
+  <div class="block_classic_1">
+    <div class="bfield_12"></div>
+    <span class="bfield_1_1">На нашем проекте, предусмотрена установка индивидуальных скинов, в том числе с высоким разрешением.</span>
+    <xf:if is="$role == 'Newb'">
+      <xf:else />
+    <button href='#' id='trigger2' class="bbutton_12_invisible">
+      <div class="bbutton_12"></div>
+      <span><a class="bbutton_12_text">Плащ</a></span>
+    </button>
+    </xf:if>
+    <button href='#' id='trigger1' class="bbutton_2_invisible">
+      <div class="bbutton_2"></div>
+      <span class="bbutton_2_text">Скин</span>
+    </button>
+    <span class="bfield_1_2">Обычные плащи (64х32), могут устанавливать обладатели аккаунта "Player".</span>
+    <span class="bfield_1_3">HD-плащи и HD-скины, могут устанавливать только обладатели "Premium" аккаунтов.</span>
+  </div>
+</div>
+
+<xf:if is="$role != 'Newb'">
+<div id='box2' style='display: none;' class="pfield_2_invisible">
+  <div class="pfield_2"></div>
+  <xf:if is="$role == 'Player'">
+    <span class="pfield_2_text1">Вы можете загрузить только обычный плащ!</span>
+    <xf:else />
+    <span class="pfield_2_text1">Вы можете загрузить обычный и HD плащ!</span>
+  </xf:if>
+  <button class="pbutton_1_invisible">
+    <div class="pbutton_1"></div>
+    <span class="pbutton_1_text">Сайт для выбора плащей</span>
+  </button>
+  <button class="pbutton_2_invisible">
+    <div class="pbutton_2"></div>
+    <span class="pbutton_2_text">Загрузить плащ</span>
+  </button>
+
+  <div class="plash"></div>
+</div>
+</xf:if>
+
+<div id='box1' style='display: none;' class="sblock_2">
+  <xf:form method="POST" action="index.php?servers/{{ $this_server.name }}/skin" upload="true">
+  <div class="sfield_2"></div>
+  <span class="sfield_2_text">Вы можете загрузить скин с разрешением, не более 64х32!</span>
+    <xf:upload type="file" name="skin" id="box1-input" accept=".png" onchange="form.submit()" />
+  <label class="sbutton_7_invisible" for="box1-input">
+    <div class="sbutton_7"></div>
+    <span class="sbutton_7_text">Загрузить скин</span>
+  </label>
+  </xf:form>
+
+  <button class="sbutton_3_invisible">
+    <div class="sbutton_3"></div>
+    <span class="sbutton_3_text">Пример 64х32</span></button>
+  <button class="sbutton_4_invisible">
+    <div class="sbutton_4"></div>
+    <span class="sbutton_4_text">Пример 128х64</span></button>
+  <button class="sbutton_5_invisible">
+    <div class="sbutton_5"></div>
+    <span class="sbutton_5_text">Пример 256х128</span></button>
+  <button class="sbutton_6_invisible">
+    <div class="sbutton_6"></div>
+    <span class="sbutton_6_text">Пример 512х256</span></button>
+  <div class="skin"></div>
+</div>
+
+<xf:foreach loop="$prices" value="$price" i="$i">
+{{ include('layout_'.$price.name) }}
+</xf:foreach>
+
+<xf:if is="$style == 'default'">
+  <xf:else/>
+  </div>
+</xf:if>

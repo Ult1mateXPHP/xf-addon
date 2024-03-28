@@ -1,0 +1,102 @@
+<xf:if is="$style == 'default'">
+    <xf:else/>
+    <div class="background_{{ $style }}" style="height: 100%">
+</xf:if>
+
+<xf:if is="$nav">
+    {{ include('nav_bar') }}
+</xf:if>
+
+<div class="block_1">
+    <div class="block_1_info"></div>
+    <span class="bheading">Основная информация</span>
+    <div class="bheading_line"></div>
+    <div class="ifield_1">
+        <span class="ifield_1_2">{{ $expired }}</span>
+        <span class="ifield_1_1">Окончание премиума:</span>
+    </div>
+    <div class="ifield_2">
+        <span class="ifield_2_2">{{ $tau }} Tau <a href="index.php?replenish">(Пополнить)</a></span>
+        <span class="ifield_2_1">Счёт личного кабинета:</span>
+    </div>
+    <div class="ifield_3">
+        <span class="ifield_3_2">Ваш ник в игре:</span>
+        <span class="ifield_3_1">{{ $xf.visitor.username }}</span>
+    </div>
+    <div class="ifield_4">
+        <span class="ifield_4_2">Статус аккаунта:</span>
+        <span class="ifield_4_1">{{ $role }}</span>
+    </div>
+</div>
+
+<div class="block_2">
+    <span class="bheading">Аккаунт</span>
+    <div class="bheading_line"></div>
+    <span class="bsubtitle">Существует всего 3 типа аккаунта: Newb, Player, Premium.</span>
+    <div class="afield_1_invisible">
+        <div class="afield_1"></div>
+        <span class="afield_1_1">1. Newb</span>
+        <span class="afield_1_2">Это гостевой аккаунт. Все новенькие игроки, автоматически его получают.</span>
+        <span class="afield_1_3">Для него характерен опознавательный префикс - [Newb]. Минимальный и редко обновляющийся набор прав и возможностей.</span>
+        <span class="afield_1_4">Запрещен розлив лавы, ограничен по высоте розлив воды (не выше 70-и блоков).</span>
+    </div>
+    <div class="afield_2_invisible">
+        <div class="afield_2"></div>
+        <span class="afield_2_1">2. Player <a href="#first">(подробнее)</a></span>
+        <span class="afield_2_2">Аккаунт для более опытных игроков. Префикс [Newb] отсутствует. Появляются права на такие команды как //size, /spawn, и др.</span>
+        <span class="afield_2_3">Дроп спаунеров, возможность переопределить вид мобов, которых будет производить спаунер.</span>
+        <span class="afield_2_4">Возможность подать заявку на большой приват и регистрацию города, стать мэром города; средний приоритет на вход, ...</span>
+        <span class="afield_2_5">Права и возможности обновляются чаще.</span>
+        <xf:if is="$price.player.is_discount == 1">
+            <span class="afield_2_6">Переход с Newb раз и навсегда, стоимость - {{ $prices.player.discount_add }} Tau</span>
+            <xf:else />
+            <span class="afield_2_6">Переход с Newb раз и навсегда, стоимость - {{ $prices.player.price_add }} Tau</span>
+        </xf:if>
+    </div>
+    <div class="afield_3_invisible">
+        <div class="afield_3"></div>
+        <span class="afield_3_1">3. Premium <a href="#first">(подробнее)</a></span>
+        <span class="afield_3_3">Максимально комфортная игра. Почетный префикс [Premium], возможность бесплатно сменить на индивидуальный.</span>
+        <span class="afield_3_4">Помощь модератора по любому вопросу и без ожидания. Еще больше часто обновляющихся прав, привилегий и возможностей -</span>
+        <span class="afield_3_5">начиная от HD текстуры скина и плаща, заканчивая свободным входом на сервер без ожидания очереди.</span>
+        <xf:if is="$price.premium.is_discount == 1">
+            <span class="afield_3_6">Переход возможен только с аккаунта "Player". Стоимость - {{ $prices.premium.discount_add }} Tau в месяц.</span>
+            <xf:else />
+            <span class="afield_3_6">Переход возможен только с аккаунта "Player". Стоимость - {{ $prices.premium.price_add }} Tau в месяц.</span>
+        </xf:if>
+    </div>
+</div>
+
+<xf:if is="$role == 'Newb'">
+    <div class="block_3">
+        <div class="bfield_invisible"></div>
+        <button class="bfield">
+            <div class="bbutton"></div>
+            <xf:if is="$prices.player.is_discount == 0">
+                <span class="bbutton_1"><a href="index.php?forum/cabinet/buy_confirm" style="text-decoration: none; color: black">Хочу аккаунт "Player" за {{ $prices.player.price_add }} Tau</a></span>
+                <xf:else />
+                <span class="bbutton_1"><a href="index.php?forum/cabinet/buy_confirm" style="text-decoration: none; color: black">Хочу аккаунт "Player" за {{ $prices.player.discount_add }} Tau</a></span>
+            </xf:if>
+        </button>
+        <span class="bfield_1">Ниже указаны цены с учетом вашего текущего статуса, всех активных акций, скидок и историей ваших операций:</span>
+    </div>
+    <xf:elseif is="$role == 'Player'"/>
+    <div class="block_3">
+        <div class="bfield_invisible"></div>
+        <button class="bfield">
+            <div class="bbutton"></div>
+            <xf:if is="$prices.premium.is_discount == 0">
+                <span class="bbutton_1"><a href="index.php?forum/cabinet/buy_confirm" style="text-decoration: none; color: black">Хочу аккаунт "Premium" за {{ $prices.premium.price_add }} Tau</a></span>
+                <xf:else />
+                <span class="bbutton_1"><a href="index.php?forum/cabinet/buy_confirm" style="text-decoration: none; color: black">Хочу аккаунт "Premium" за {{ $prices.premium.discount_add }} Tau</a></span>
+            </xf:if>
+        </button>
+        <span class="bfield_1">Ниже указаны цены с учетом вашего текущего статуса, всех активных акций, скидок и историей ваших операций:</span>
+    </div>
+    <xf:else is="$role == 'Premium'"/>
+</xf:if>
+
+<xf:if is="$style == 'default'">
+    <xf:else/>
+    </div>
+</xf:if>

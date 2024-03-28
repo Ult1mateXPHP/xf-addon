@@ -1,0 +1,21 @@
+<xf:form class="bfield_4_invisible_1" method="POST" action="index.php?servers/{{ $this_server.name }}/buy">
+  <span class="bheading">Перевод Tau (личный кабинет -> сервер)</span>
+  <div class="bheading_line"></div>
+  <div class="bfield_4_invisible_2">
+    <div class="bfield_4"></div>
+    <button class="bbutton_2_1_invisible">
+      <div class="bbutton_2_1"></div>
+      <input type="submit" id="pay" style="display: none;">
+      <label class="bbutton_2_1_text" for="pay">Перевести</label></button>
+    <div class="minput_2_invisible">
+      <input class="minput_2" type="number" name="cost" min="1000" onkeyup="this.value = this.value.replace(/[^\d]/g,'');"></div>
+    <span class="minput_2_info1">Сумма:</span>
+    <span class="minput_2_info2">Минимальная сумма - 1000 Tau.</span>
+  </div>
+</xf:form>
+
+<div class="footer_invisible">
+  <div class="bheading_line">
+    <span class="footer_text">Все операции выполняются моментально. Некоторые изменения вступают в силу после выхода из игры и повторного запуска клиента!</span>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "forum",
+    "sub_name": "",
+    "format": "cabinet",
+    "build_class": "",
+    "build_method": "",
+    "controller": "UX\\PersonalArea:Cabinet",
+    "context": "",
+    "action_prefix": ""
+}

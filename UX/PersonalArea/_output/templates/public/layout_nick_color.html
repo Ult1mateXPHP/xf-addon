@@ -1,0 +1,38 @@
+<div class="bfield_2_invisible">
+    <span class="bheading">Цветной ник в игровом чате</span>
+    <div class="bheading_line"></div>
+    <xf:form class="block_classic_1" method="POST" action="index.php?servers/{{ $this_server.name }}/buy">
+        <input type="hidden" name="buy" value="{{ $price.name }}">
+        <div class="bfield_2"></div>
+        <xf:if is="$price.is_discount == 1">
+            <span class="bfield_2_1">Стоимость - {{ $price.discount_add }} Tau, бессрочно. Повторная смена - {{ $price.discount_edit }} Tau.</span>
+            <xf:else />
+            <span class="bfield_2_1">Стоимость - {{ $price.price_add }} Tau, бессрочно. Повторная смена - {{ $price.price_edit }} Tau.</span>
+        </xf:if>
+        <span class="mchoise_1_text">Выберите цвет:</span>
+        <button class="bbutton_1_1_invisible">
+            <div class="bbutton_1_1"></div>
+            <input type="submit" id="nickcolor" style="display: none">
+            <label class="bbutton_1_1_text" for="nickcolor">Установить</label></button>
+        <div class="mchoise_1_invisible">
+            <p><select class="mchoise_1" name="data">
+                <option class="mchoise_1_color_1" value="&f">White</option>
+                <option class="mchoise_1_color_2" value="&d">Light Purple</option>
+                <option class="mchoise_1_color_3" value="&b">Aqua</option>
+                <option class="mchoise_1_color_4" value="&9">Blue</option>
+                <option class="mchoise_1_color_5" value="&7">Gray</option>
+                <option class="mchoise_1_color_6" value="&5">Dark Purple</option>
+                <option class="mchoise_1_color_7" value="&3">Dark Aqua</option>
+                <option class="mchoise_1_color_8" value="&1">Dark Blue</option>
+                <option class="mchoise_1_color_9" value="&e">Yellow</option>
+                <option class="mchoise_1_color_10" value="&c">Red</option>
+                <option class="mchoise_1_color_11" value="&a">Green</option>
+                <option class="mchoise_1_color_12" value="&8">Dark Gray</option>
+                <option class="mchoise_1_color_13" value="&6">Gold</option>
+                <option class="mchoise_1_color_14" value="&4">Dark Red</option>
+                <option class="mchoise_1_color_15" value="&2">Dark Green</option>
+                <option class="mchoise_1_color_16" value="&0">Black</option>
+            </select></p>
+        </div>
+    </xf:form>
+</div>

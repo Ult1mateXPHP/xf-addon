@@ -1,0 +1,33 @@
+<xf:title>Minecraft-World.ru | Подтверждение оплаты</xf:title>
+
+<xf:if is="$nav">
+  {{ include('nav_bar') }}
+</xf:if>
+
+<div class="pblock_invisible">
+  <div class="pblock"></div>
+  <div class="ptext_1">
+    <span class="ptext_1_1">Вы собираетесь пополнить баланс на {{ $tau }} Tau ({{ $rub }} рублей, без учета комиссий платежных систем)</span>
+    <span class="ptext_1_2">Советуем Вам, сохранить чек и держать его в течении 1-о месяца, в случае возникновения каких-либо проблем!</span>
+  </div>
+  <div class="ptext_2">
+    <span class="ptext_2_1">Внимание! Tau на Ваш счет могут быть зачислены в течении 15-и минут до 3-х дней.</span>
+    <a class="ptext_2_2">Если, Tau так и не пришли после истечения 3-х дней, то свяжитесь с нами по ссылке ниже! </a>
+    <a href="https://www.minecraft-world.ru/forum/misc/contact" class="ptext_2_3">https://www.minecraft-world.ru/forum/misc/contact</a>
+  </div>
+  <div class="ptext_3">
+    <a href="https://vk.com/public212151860" class="ptext_3_1">https://vk.com/public212151860</a>
+    <span class="ptext_3_2">Пополнение через криптовалюту, может происходить по обращении к нам через личные сообщения группы ВКонтакте!</span>
+  </div>
+  <div class="pinfo">
+    <span class="pinfo_1">Номер счета:</span>
+    <span class="pinfo_2">{{ $number }}</span>
+    <span class="pinfo_3">Логин:</span>
+    <span class="pinfo_4">{{ $username }}</span>
+  </div>
+
+  <button class="pblock_text_invisible">
+    <div class="pbutton"></div>
+    <span class="pbutton_text">Перейти к оплате</span>
+  </button>
+</div>

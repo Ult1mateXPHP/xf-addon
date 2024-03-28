@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "servers",
+    "sub_name": "classic",
+    "format": "classic",
+    "build_class": "",
+    "build_method": "",
+    "controller": "UX\\PersonalArea:Server",
+    "context": "",
+    "action_prefix": ""
+}

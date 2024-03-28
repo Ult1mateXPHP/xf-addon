@@ -1,0 +1,19 @@
+<xf:title>Minecraft-World.ru | Пополнение счёта</xf:title>
+
+<xf:if is="$nav">
+    {{ include('nav_bar') }}
+</xf:if>
+
+<xf:form class="block_replenish_invisible" action="{{ link('replenish/payment') }}" ajax="true">
+    <div class="block_replenish"></div>
+    <span class="block_replenish_text1">Вы сможете потратить их на конкретные услуги, на особенный тип аккаунта, или перевести на свой игровой счет сервера.</span>
+    <span class="block_replenish_text2">После пополнения, Tau окажутся на вашем личном счете в кабинете.</span>
+    <span class="pinput_1_info1">Сумма (Tau):</span>
+    <span class="pinput_1_info2">Текущий курс: 100 Tau - 1 рубль. Минимальная сумма - 3000 Tau.</span>
+    <div class="pinput_1_invisible">
+        <input class="pinput_1" name="tau" type="number" min="3000" onkeyup="this.value = this.value.replace(/[^\d]/g,'');"></div>
+    <button class="rbutton_1_invisible">
+        <div class="rbutton_1"></div>
+        <span class="rbutton_1_text">Пополнить</span>
+    </button>
+</xf:form>

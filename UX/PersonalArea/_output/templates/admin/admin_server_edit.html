@@ -1,0 +1,28 @@
+<xf:title>Редактирование сервера</xf:title>
+
+<xf:pageaction if="$server.isUpdate()">
+    <xf:button href="{{ link('servers/delete', $server) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('servers/save', $server) }}" ajax="true" class="block">
+    <div class="block-container">
+        <div class="block-body">
+            <xf:textboxrow name="name" value="{$server.name}"
+                           label="{{ phrase('server_name') }}" />
+
+            <xf:textboxrow name="title" value="{$server.title}"
+                           label="{{ phrase('server_title') }}" />
+
+            <xf:textboxrow name="host" value="{$server.host}"
+                           label="{{ phrase('rcon_host') }}" />
+
+            <xf:textboxrow name="port" value="{$server.port}"
+                           label="{{ phrase('rcon_port') }}" />
+
+            <xf:textboxrow name="passwd" value="{$server.passwd}"
+                           label="{{ phrase('rcon_passwd') }}" />
+        </div>
+
+        <xf:submitrow sticky="true" icon="save" />
+    </div>
+</xf:form>

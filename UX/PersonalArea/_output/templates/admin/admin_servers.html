@@ -1,0 +1,36 @@
+<xf:title>{{ phrase('servers') }}</xf:title>
+
+<xf:pageaction>
+    <xf:button href="{{ link('servers/create') }}" icon="add">{{ phrase('server_add') }}</xf:button>
+</xf:pageaction>
+
+<xf:form action="{{ link('servers') }}" class="block">
+    <div class="block-container">
+        <xf:if is="$servers is not empty">
+            <div class="block-body">
+                <xf:datalist data-xf-init="responsive-data-list">
+                    <xf:datarow rowtype="header">
+                        <xf:cell>{{ phrase('server_name') }}</xf:cell>
+                        <xf:cell>{{ phrase('server_title') }}</xf:cell>
+                        <xf:cell>{{ phrase('rcon_host') }}</xf:cell>
+                        <xf:cell>{{ phrase('rcon_port') }}</xf:cell>
+                        <xf:cell>{{ phrase('rcon_passwd') }}</xf:cell>
+                        <xf:cell class="dataList-cell--min">&nbsp;</xf:cell>
+                    </xf:datarow>
+                    <xf:foreach loop="$servers" value="$server">
+                        <xf:datarow>
+                            <xf:cell href="{{ link('servers/edit', $server) }}">{$server.name}</xf:cell>
+                            <xf:cell href="{{ link('servers/edit', $server) }}">{$server.title}</xf:cell>
+                            <xf:cell href="{{ link('servers/edit', $server) }}">{$server.host}</xf:cell>
+                            <xf:cell href="{{ link('servers/edit', $server) }}">{$server.port}</xf:cell>
+                            <xf:cell href="{{ link('servers/edit', $server) }}">{$server.passwd}</xf:cell>
+                            <xf:delete href="{{ link('servers/delete', $server) }}" />
+                        </xf:datarow>
+                    </xf:foreach>
+                </xf:datalist>
+            </div>
+            <xf:else />
+            <div class="block-body block-row">{{ phrase('no_results_found') }}</div>
+        </xf:if>
+    </div>
+</xf:form>

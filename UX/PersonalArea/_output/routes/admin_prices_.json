@@ -1,0 +1,11 @@
+{
+    "route_type": "admin",
+    "route_prefix": "prices",
+    "sub_name": "",
+    "format": ":int<id,name>/",
+    "build_class": "",
+    "build_method": "",
+    "controller": "UX\\PersonalArea:Prices",
+    "context": "",
+    "action_prefix": ""
+}

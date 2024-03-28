@@ -1,0 +1,32 @@
+<xf:title>Добавление товара</xf:title>
+
+<xf:form action="{{ link('prices/save') }}" ajax="true" class="block">
+  <div class="block-container">
+    <div class="block-body">
+      <xf:textboxrow name="name" value=""
+                     label="{{ phrase('price_name') }}" />
+
+      <xf:textboxrow name="server_id" value=""
+                     label="{{ phrase('server_id') }}" />
+
+      <xf:textboxrow name="price" value=""
+                     label="{{ phrase('price') }}" />
+
+      <xf:textboxrow name="price" value=""
+                     label="{{ phrase('price') }}" />
+
+      <xf:checkboxrow>
+        <xf:option name="is_discount"
+                   label="{{ phrase('is_discount') }}" />
+      </xf:checkboxrow>
+
+      <xf:textboxrow name="discount" value=""
+                     label="{{ phrase('discount') }}" />
+
+      <xf:textboxrow name="discount" value=""
+                     label="{{ phrase('discount') }}" />
+    </div>
+
+    <xf:submitrow sticky="true" icon="save" />
+  </div>
+</xf:form>

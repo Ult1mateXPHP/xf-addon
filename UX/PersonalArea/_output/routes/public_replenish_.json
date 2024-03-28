@@ -1,0 +1,11 @@
+{
+    "route_type": "public",
+    "route_prefix": "replenish",
+    "sub_name": "",
+    "format": "",
+    "build_class": "",
+    "build_method": "",
+    "controller": "UX\\PersonalArea:Replenish",
+    "context": "",
+    "action_prefix": ""
+}

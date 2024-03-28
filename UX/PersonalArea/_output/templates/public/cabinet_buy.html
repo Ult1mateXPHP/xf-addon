@@ -1,0 +1,20 @@
+<div class="div-info">
+  <div class="div-info-title">
+    <span>{{ $title }}</span>
+    <a href="index.php?forum/cabinet"><img class="div-info-close" src="{{ asset('images') }}/close.png" height="22" width="22"></a>
+  </div>
+  <div class="div-info-message">
+    <p style="margin: 0">Вы уверены, что хотите приобрести на свой аккаунт “{{ $role }}”?</p>
+    <xf:if is="$role == 'Player'">
+      <p style="margin: 0">Статус выдается навсегда, но может быть снят по вашей просьбе.</p>
+    </xf:if>
+  </div>
+  <div class="div-info-buttons">
+    <xf:if is="$role == 'Player'">
+      <a class="div-info-button" href="index.php?forum/cabinet/player_buy" style="text-decoration: none; color: black">Да</a>
+      <xf:elseif is="$role == 'Premium'" />
+      <a class="div-info-button" href="index.php?forum/cabinet/premium_buy" style="text-decoration: none; color: black">Да</a>
+    </xf:if>
+    <a class="div-info-button" href="index.php?forum/cabinet" style="text-decoration: none; color: black">Нет</a>
+  </div>
+</div>

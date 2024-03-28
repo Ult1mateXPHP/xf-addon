@@ -1,0 +1,10 @@
+<xf:if is="$style == 'default'">
+  <ul class="menu">
+    <xf:else />
+  <ul class="menu_{{ $style }}">
+</xf:if>
+<li><a href="?forum/cabinet">Управление аккаунтом</a></li>
+<xf:foreach loop="$servers" value="$server" i="$i">
+  <li><a href="?servers/{{ $server.name }}">Сервер “{{ $server.title }}”</a></li>
+</xf:foreach>
+</ul>
